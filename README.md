@@ -26,7 +26,7 @@ services:
         MYSQL_ROOT_PASSWORD: "change-me-to-something-strong"
         MYSQL_DATABASE: uvdesk
     ports:
-        - 80:80
+        - 8085:80
 
 volumes:
   db_data: {}
