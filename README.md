@@ -2,6 +2,39 @@
 uvdesk ticketing tools 
 
 
+```
+version: '3'
+services:
+  db:
+    image: "mysql:5.7"
+    volumes:
+      - ./uvdesk/db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: uvdesk
+      MYSQL_ROOT_PASSWORD: "change-me-to-something-strong"
+      MYSQL_USER: "uvdesk"
+      MYSQL_PASSWORD: "change-me-to-something-strong-too"
+  uvdesk:
+    image: nuttcorp/uvdesk:latest
+    depends_on:
+      - db
+    tty: true
+    environment:
+        MYSQL_USER: "uvdesk"
+        MYSQL_PASSWORD: "change-me-to-something-strong-too"
+        MYSQL_ROOT_PASSWORD: "change-me-to-something-strong"
+        MYSQL_DATABASE: uvdesk
+    ports:
+        - 80:80
+
+volumes:
+  db_data: {}
+
+```
+
+
+
 
 References:
 
