@@ -12,9 +12,9 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: uvdesk
-      MYSQL_ROOT_PASSWORD: "change-me-to-something-strong"
+      MYSQL_ROOT_PASSWORD: "mysqlsecret"
       MYSQL_USER: "uvdesk"
-      MYSQL_PASSWORD: "change-me-to-something-strong-too"
+      MYSQL_PASSWORD: "mysqlsecret"
   uvdesk:
     image: nuttcorp/uvdesk:latest
     depends_on:
@@ -22,8 +22,8 @@ services:
     tty: true
     environment:
         MYSQL_USER: "uvdesk"
-        MYSQL_PASSWORD: "change-me-to-something-strong-too"
-        MYSQL_ROOT_PASSWORD: "change-me-to-something-strong"
+        MYSQL_PASSWORD: "mysqlsecret"
+        MYSQL_ROOT_PASSWORD: "mysqlsecret"
         MYSQL_DATABASE: uvdesk
     ports:
         - 8085:80
